@@ -2,17 +2,17 @@ using System;
 
 namespace GarysGarage
 {
-    public class Cessna : Vehicle // Propellor light aircraft
+    public class Cessna : Vehicle, IFlyingVehicle, IGasVehicle  // Propellor light aircraft
     {
         public double FuelCapacity { get; set; }
-
+        public int CurrentTankPercentage { get; set; } = 93;
 
         public void RefuelTank()
         {
-            Console.WriteLine($"You have filled your Cessna to {this.FuelCapacity}");
+            CurrentTankPercentage = 100;
         }
 
-        public override void Drive()
+        public void Fly()
         {
             Console.WriteLine($"The {MainColor} Cessna flies over you...ZOOOOOOM!");
         }

@@ -2,19 +2,20 @@ using System;
 
 namespace GarysGarage
 {
-    public class Tesla : Vehicle
+    public class Tesla : Vehicle, IElectricVehicle
     {
         public double BatteryKWh { get; set; }
+        public int CurrentChargePercentage { get; set; } = 30;
 
         public void ChargeBattery()
         {
-            Console.WriteLine($"Your Tesla is now charged to {this.BatteryKWh}KHw.");
+            CurrentChargePercentage = 100;
         }
         public override void Drive()
         {
             Console.WriteLine($"The {MainColor} Tesla whines by you...Whiiiinnnne!");
         }
-        public virtual void Turn(string direction)
+        public override void Turn(string direction)
         {
             Console.WriteLine($"The vehicle turns {direction}.");
         }
